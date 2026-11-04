@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capelli Divini | Salón de belleza y barbería en Vinto</title>
+<meta name="description" content="Salón de belleza y barbería en la av. Pairumani, Vinto. Cortes, barba, color y peinados con reserva por WhatsApp.">
+<meta property="og:title" content="Capelli Divini | Salón de belleza y barbería">
+<meta property="og:description" content="Reserve su cita por WhatsApp. Av. Pairumani, Vinto.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<!--
+SUPUESTOS (reemplazar con datos reales de Noemí): precios de servicios, horario,
+oferta de entrada (10% primera reserva) y formas de pago. Fotos = muestra.
+Secciones #resenas y #donde están ocultas hasta tener datos.
+-->
+<style>
+:root{--n:#0c0b0a;--n2:#16140f;--o:#c9a24b;--o2:#e3c882;--t:#f3ede0;--m:#a39a86}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--n);color:var(--t);font-family:Georgia,"Times New Roman",serif;line-height:1.6;padding-bottom:76px}
+h1,h2,h3{font-weight:700;line-height:1.2}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;background:var(--o);color:#111;font:700 1rem system-ui,sans-serif;padding:14px 26px;border-radius:999px;text-decoration:none;letter-spacing:.02em}
+.btn:hover{background:var(--o2)}
+.hero{min-height:92vh;display:flex;align-items:center;background:linear-gradient(rgba(12,11,10,.55),rgba(12,11,10,.85)),url(img/hero-movil.jpg) center/cover}
+@media(min-width:700px){.hero{background-image:linear-gradient(rgba(12,11,10,.55),rgba(12,11,10,.85)),url(img/hero.jpg)}}
+.brand{font:600 .85rem system-ui,sans-serif;letter-spacing:.35em;text-transform:uppercase;color:var(--o);margin-bottom:18px}
+.hero h1{font-size:clamp(2rem,6vw,3.6rem);max-width:15ch;margin-bottom:16px}
+.hero p{max-width:46ch;color:#d8d0bd;margin-bottom:26px;font-size:1.1rem}
+.benef{background:var(--n2);border-block:1px solid #2a2618}
+.benef ul{list-style:none;display:grid;gap:14px;padding:26px 0;font-family:system-ui,sans-serif;font-size:.95rem}
+@media(min-width:700px){.benef ul{grid-template-columns:repeat(4,1fr)}}
+.benef li strong{display:block;color:var(--o);margin-bottom:2px}
+section{padding:60px 0}
+h2{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:8px}
+h2+p{color:var(--m);margin-bottom:28px}
+.serv{display:grid;gap:16px}
+@media(min-width:700px){.serv{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--n2);border:1px solid #2a2618;border-radius:14px;overflow:hidden}
+.card img{width:100%;height:170px;object-fit:cover;display:block}
+.card div{padding:18px}
+.card h3{color:var(--o2);margin-bottom:10px}
+.card li{list-style:none;display:flex;justify-content:space-between;gap:10px;font-family:system-ui,sans-serif;font-size:.95rem;padding:5px 0;border-bottom:1px dashed #2f2a1b}
+.card li span:last-child{color:var(--o);white-space:nowrap}
+.oferta{background:linear-gradient(135deg,#1c170b,#0c0b0a);border:1px solid var(--o);border-radius:18px;padding:34px 24px;text-align:center}
+.oferta h2{color:var(--o2)}
+.oferta p{color:#d8d0bd;margin:0 auto 22px;max-width:48ch}
+.conf{display:grid;gap:14px;font-family:system-ui,sans-serif}
+@media(min-width:700px){.conf{grid-template-columns:repeat(3,1fr)}}
+.conf div{border-left:3px solid var(--o);padding:6px 14px;background:var(--n2);border-radius:0 10px 10px 0}
+.conf strong{display:block;color:var(--o2)}
+details{background:var(--n2);border:1px solid #2a2618;border-radius:12px;margin-bottom:10px;padding:14px 18px}
+summary{cursor:pointer;font-weight:700;color:var(--o2)}
+details p{margin-top:10px;color:#d8d0bd;font-family:system-ui,sans-serif;font-size:.95rem}
+.cta{text-align:center}
+footer{border-top:1px solid #2a2618;padding:30px 0;color:var(--m);font:.85rem system-ui,sans-serif;text-align:center}
+.bar{position:fixed;inset:auto 0 0 0;z-index:20;background:rgba(12,11,10,.96);border-top:1px solid var(--o);padding:10px 16px;display:flex;justify-content:center}
+.bar .btn{width:100%;max-width:420px;text-align:center}
+@media(min-width:900px){.bar{display:none}body{padding-bottom:0}}
+.aviso{position:fixed;left:12px;right:12px;bottom:80px;z-index:19;max-width:380px;margin:0 auto;background:var(--n2);border:1px solid var(--o);border-radius:12px;padding:12px 14px;font:.85rem system-ui,sans-serif;display:none;gap:10px;align-items:center;justify-content:space-between}
+.aviso.on{display:flex}
+.aviso button{background:none;border:0;color:var(--o);font-size:1.2rem;cursor:pointer}
+@media(min-width:900px){.aviso{bottom:20px;right:20px;left:auto;margin:0}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">Capelli Divini</div>
+    <h1>Su mejor versión, con cita y sin esperas</h1>
+    <p>Salón de belleza y barbería en Vinto. Atención con reserva para que su tiempo valga.</p>
+    <a class="btn wa" href="#" data-msg="Hola, quiero reservar una cita en Capelli Divini.">Reservar por WhatsApp</a>
+  </div>
+</header>
+
+<div class="benef">
+  <div class="wrap">
+    <ul>
+      <li><strong>Con reserva</strong>Sin filas ni esperas largas.</li>
+      <li><strong>Salón y barbería</strong>Para toda la familia.</li>
+      <li><strong>Precios accesibles</strong>Servicios desde 25 Bs.</li>
+      <li><strong>Cerca de la UAB</strong>Av. Pairumani, Vinto.</li>
+    </ul>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="wrap">
+    <h2>Servicios</h2>
+    <p>Precios de referencia; confirme el suyo al reservar.</p>
+    <div class="serv">
+      <article class="card">
+        <img src="img/salon-corte.jpg" alt="Imagen de muestra: ambiente cálido de salón en negro y dorado" loading="lazy">
+        <div><h3>Salón</h3><ul>
+          <li><span>Corte dama</span><span>50 Bs</span></li>
+          <li><span>Peinado</span><span>40 Bs</span></li>
+          <li><span>Manicure</span><span>35 Bs</span></li>
+        </ul></div>
+      </article>
+      <article class="card">
+        <img src="img/barberia-barba.jpg" alt="Imagen de muestra: ambiente de barbería en negro y dorado" loading="lazy">
+        <div><h3>Barbería</h3><ul>
+          <li><span>Corte caballero</span><span>30 Bs</span></li>
+          <li><span>Barba</span><span>25 Bs</span></li>
+          <li><span>Corte + barba</span><span>50 Bs</span></li>
+        </ul></div>
+      </article>
+      <article class="card">
+        <img src="img/salon-color.jpg" alt="Imagen de muestra: ambiente de color y tratamientos en negro y dorado" loading="lazy">
+        <div><h3>Color</h3><ul>
+          <li><span>Tinte</span><span>desde 70 Bs</span></li>
+          <li><span>Tratamiento</span><span>desde 60 Bs</span></li>
+        </ul></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="oferta">
+      <h2>10% de descuento en su primera reserva</h2>
+      <p>Escríbanos por WhatsApp, mencione esta página y reserve su primera cita con descuento.</p>
+      <a class="btn wa" href="#" data-msg="Hola, vi la página de Capelli Divini y quiero mi descuento de primera reserva.">Quiero mi descuento</a>
+    </div>
+  </div>
+</section>
+
+<section id="confianza">
+  <div class="wrap">
+    <h2>Por qué elegirnos</h2>
+    <p>Atención personal en un solo lugar.</p>
+    <div class="conf">
+      <div><strong>Atención con cita</strong>Le dedicamos el tiempo que su servicio necesita.</div>
+      <div><strong>Horario</strong>Lunes a sábado, 9:00 a 19:00.</div>
+      <div><strong>Formas de pago</strong>Efectivo, transferencia o QR.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Ocultas hasta tener datos reales -->
+<section id="resenas" hidden>
+  <div class="wrap"><h2>Lo que dicen nuestros clientes</h2></div>
+</section>
+<section id="donde" hidden>
+  <div class="wrap"><h2>Dónde estamos</h2></div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <p>Lo esencial antes de reservar.</p>
+    <details><summary>¿Cómo reservo?</summary><p>Presione el botón de WhatsApp, indique el servicio y el día que prefiere, y le confirmamos el horario.</p></details>
+    <details><summary>¿Atienden sin cita?</summary><p>Trabajamos con reserva para no hacerle esperar. Escríbanos y le buscamos un espacio.</p></details>
+    <details><summary>¿Dónde están?</summary><p>En la av. Pairumani, Vinto, a una cuadra de la Universidad Adventista de Bolivia.</p></details>
+    <details><summary>¿Cuánto cuesta un servicio?</summary><p>Los precios de referencia están arriba; el valor final se confirma al reservar.</p></details>
+    <details><summary>¿Cómo puedo pagar?</summary><p>Efectivo, transferencia o QR.</p></details>
+    <details><summary>¿Tienen servicio de barbería?</summary><p>Sí, cortes y arreglo de barba para caballeros.</p></details>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Reserve su cita hoy</h2>
+    <p>Respondemos por WhatsApp.</p>
+    <a class="btn wa" href="#" data-msg="Hola, quiero reservar una cita en Capelli Divini.">Reservar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Capelli Divini · Av. Pairumani, Vinto, Bolivia · Reservas: WhatsApp +591 63883656</div>
+</footer>
+
+<div class="aviso" id="aviso" role="status">
+  <span>¿Quiere reservar? Escríbanos por WhatsApp.</span>
+  <button type="button" id="cerrar" aria-label="Cerrar aviso">×</button>
+</div>
+
+<div class="bar"><a class="btn wa" href="#" data-msg="Hola, quiero reservar una cita en Capelli Divini.">Reservar por WhatsApp</a></div>
+
+<script>
+(function(){
+  var NUM="59163883656";
+  document.querySelectorAll(".wa").forEach(function(a){
+    a.href="https://wa.me/"+NUM+"?text="+encodeURIComponent(a.dataset.msg||"Hola, quiero reservar una cita.");
+    a.target="_blank"; a.rel="noopener";
+  });
+  var av=document.getElementById("aviso"),seen=false;
+  try{seen=sessionStorage.getItem("cd_aviso")==="1"}catch(e){}
+  if(!seen){setTimeout(function(){av.classList.add("on")},9000)}
+  document.getElementById("cerrar").addEventListener("click",function(){
+    av.classList.remove("on");
+    try{sessionStorage.setItem("cd_aviso","1")}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
