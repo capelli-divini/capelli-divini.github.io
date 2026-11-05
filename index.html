@@ -60,10 +60,13 @@ footer{border-top:1px solid #2a2618;padding:30px 0;color:var(--m);font:.85rem sy
 .bar{position:fixed;inset:auto 0 0 0;z-index:20;background:rgba(12,11,10,.96);border-top:1px solid var(--o);padding:10px 16px;display:flex;justify-content:center}
 .bar .btn{width:100%;max-width:420px;text-align:center}
 @media(min-width:900px){.bar{display:none}body{padding-bottom:0}}
-.aviso{position:fixed;left:12px;right:12px;bottom:80px;z-index:19;max-width:380px;margin:0 auto;background:var(--n2);border:1px solid var(--o);border-radius:12px;padding:12px 14px;font:.85rem system-ui,sans-serif;display:none;gap:10px;align-items:center;justify-content:space-between}
-.aviso.on{display:flex}
-.aviso button{background:none;border:0;color:var(--o);font-size:1.2rem;cursor:pointer}
-@media(min-width:900px){.aviso{bottom:20px;right:20px;left:auto;margin:0}}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}
+.modal .box{position:relative;max-width:420px;width:100%;background:linear-gradient(160deg,#1c170b,#0c0b0a);border:1px solid var(--o);border-radius:18px;padding:34px 24px 26px;text-align:center}
+.modal h2{color:var(--o2);font-size:1.6rem;margin-bottom:10px}
+.modal p{color:#d8d0bd;margin-bottom:20px;font-family:system-ui,sans-serif}
+.modal .x{position:absolute;top:8px;right:12px;background:none;border:0;color:var(--o);font-size:1.8rem;cursor:pointer;line-height:1}
+.modal .no{display:block;margin:14px auto 0;background:none;border:0;color:var(--m);font:.85rem system-ui,sans-serif;cursor:pointer;text-decoration:underline}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -83,7 +86,7 @@ footer{border-top:1px solid #2a2618;padding:30px 0;color:var(--m);font:.85rem sy
     <ul>
       <li><strong>Con reserva</strong>Sin filas ni esperas largas.</li>
       <li><strong>Salón y barbería</strong>Para toda la familia.</li>
-      <li><strong>Precios accesibles</strong>Servicios desde 25 Bs.</li>
+      <li><strong>Precios accesibles</strong>Servicios desde 15 Bs.</li>
       <li><strong>Cerca de la UAB</strong>Av. Pairumani, Vinto.</li>
     </ul>
   </div>
@@ -97,17 +100,17 @@ footer{border-top:1px solid #2a2618;padding:30px 0;color:var(--m);font:.85rem sy
       <article class="card">
         <img src="img/salon-corte.jpg" alt="Imagen de muestra: ambiente cálido de salón en negro y dorado" loading="lazy">
         <div><h3>Salón</h3><ul>
-          <li><span>Corte dama</span><span>50 Bs</span></li>
-          <li><span>Peinado</span><span>40 Bs</span></li>
-          <li><span>Manicure</span><span>35 Bs</span></li>
+          <li><span>Corte dama</span><span>40 Bs</span></li>
+          <li><span>Peinado</span><span>20 Bs</span></li>
+          <li><span>Manicure</span><span>15 Bs</span></li>
         </ul></div>
       </article>
       <article class="card">
         <img src="img/barberia-barba.jpg" alt="Imagen de muestra: ambiente de barbería en negro y dorado" loading="lazy">
         <div><h3>Barbería</h3><ul>
-          <li><span>Corte caballero</span><span>30 Bs</span></li>
-          <li><span>Barba</span><span>25 Bs</span></li>
-          <li><span>Corte + barba</span><span>50 Bs</span></li>
+          <li><span>Corte caballero</span><span>20 Bs</span></li>
+          <li><span>Barba</span><span>15 Bs</span></li>
+          <li><span>Corte + barba</span><span>35 Bs</span></li>
         </ul></div>
       </article>
       <article class="card">
@@ -176,9 +179,14 @@ footer{border-top:1px solid #2a2618;padding:30px 0;color:var(--m);font:.85rem sy
   <div class="wrap">Capelli Divini · Av. Pairumani, Vinto, Bolivia · Reservas: WhatsApp +591 63883656</div>
 </footer>
 
-<div class="aviso" id="aviso" role="status">
-  <span>¿Quiere reservar? Escríbanos por WhatsApp.</span>
-  <button type="button" id="cerrar" aria-label="Cerrar aviso">×</button>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="box">
+    <button type="button" class="x" id="cerrar" aria-label="Cerrar">&times;</button>
+    <h2 id="mt">10% de descuento en su primera reserva</h2>
+    <p>Escríbanos por WhatsApp y reserve su cita en Capelli Divini con descuento.</p>
+    <a class="btn wa" href="#" data-msg="Hola, vi la página de Capelli Divini y quiero mi descuento de primera reserva.">Quiero mi descuento</a>
+    <button type="button" class="no" id="no">No, gracias</button>
+  </div>
 </div>
 
 <div class="bar"><a class="btn wa" href="#" data-msg="Hola, quiero reservar una cita en Capelli Divini.">Reservar por WhatsApp</a></div>
@@ -190,13 +198,14 @@ footer{border-top:1px solid #2a2618;padding:30px 0;color:var(--m);font:.85rem sy
     a.href="https://wa.me/"+NUM+"?text="+encodeURIComponent(a.dataset.msg||"Hola, quiero reservar una cita.");
     a.target="_blank"; a.rel="noopener";
   });
-  var av=document.getElementById("aviso"),seen=false;
-  try{seen=sessionStorage.getItem("cd_aviso")==="1"}catch(e){}
-  if(!seen){setTimeout(function(){av.classList.add("on")},9000)}
-  document.getElementById("cerrar").addEventListener("click",function(){
-    av.classList.remove("on");
-    try{sessionStorage.setItem("cd_aviso","1")}catch(e){}
-  });
+  var m=document.getElementById("modal"),seen=false;
+  try{seen=sessionStorage.getItem("cd_popup")==="1"}catch(e){}
+  function cerrar(){m.classList.remove("on");try{sessionStorage.setItem("cd_popup","1")}catch(e){}}
+  if(!seen){setTimeout(function(){m.classList.add("on")},4000)}
+  document.getElementById("cerrar").addEventListener("click",cerrar);
+  document.getElementById("no").addEventListener("click",cerrar);
+  m.addEventListener("click",function(e){if(e.target===m)cerrar()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrar()});
 })();
 </script>
 </body>
